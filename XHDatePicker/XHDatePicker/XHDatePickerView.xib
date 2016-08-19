@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="XHDatePickerView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvZ-fK-lMh">
+                    <rect key="frame" x="20" y="125" width="280" height="318"/>
+                    <subviews>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wXl-ql-Bdv">
+                            <rect key="frame" x="40" y="20" width="200" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="ogA-3c-sgo"/>
+                                <constraint firstAttribute="height" constant="28" id="wPX-GE-ZcF"/>
+                            </constraints>
+                            <segments>
+                                <segment title="开始时间"/>
+                                <segment title="结束时间"/>
+                            </segments>
+                        </segmentedControl>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwp-LQ-VOg">
+                            <rect key="frame" x="0.0" y="274" width="280" height="44"/>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="vMI-GT-z2f"/>
+                            </constraints>
+                            <state key="normal" title="确定">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="doneAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="pJk-ty-47x"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WnQ-ql-o81">
+                            <rect key="frame" x="190" y="246" width="90" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="I6G-ky-ZCa"/>
+                                <constraint firstAttribute="height" constant="23" id="Re9-hv-v7o"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title=" 全天" image="unSelected">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="selected"/>
+                            <connections>
+                                <action selector="todayAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="G7v-m2-fiy"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE9-lT-myF">
+                            <rect key="frame" x="0.0" y="68" width="280" height="173"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="300" id="Jnx-Pc-Fjt"/>
+                                <constraint firstAttribute="height" constant="200" id="yfH-dm-Hcp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="110"/>
+                            <color key="textColor" red="0.92941176470588238" green="0.94509803921568625" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Jnx-Pc-Fjt"/>
+                                    <exclude reference="yfH-dm-Hcp"/>
+                                </mask>
+                            </variation>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="zE9-lT-myF" firstAttribute="top" secondItem="wXl-ql-Bdv" secondAttribute="bottom" constant="20" id="20f-4u-NlY"/>
+                        <constraint firstAttribute="trailing" secondItem="zE9-lT-myF" secondAttribute="trailing" id="KVC-f7-nDk"/>
+                        <constraint firstItem="zE9-lT-myF" firstAttribute="leading" secondItem="gvZ-fK-lMh" secondAttribute="leading" id="NM5-rp-NR2"/>
+                        <constraint firstAttribute="bottom" secondItem="nwp-LQ-VOg" secondAttribute="bottom" id="Pjo-Vg-xbv"/>
+                        <constraint firstAttribute="width" secondItem="gvZ-fK-lMh" secondAttribute="height" multiplier="15:17" id="RPl-2P-hGE"/>
+                        <constraint firstItem="WnQ-ql-o81" firstAttribute="top" secondItem="zE9-lT-myF" secondAttribute="bottom" constant="5" id="SUw-ya-eY2"/>
+                        <constraint firstAttribute="trailing" secondItem="WnQ-ql-o81" secondAttribute="trailing" id="cS3-MC-oLv"/>
+                        <constraint firstItem="nwp-LQ-VOg" firstAttribute="top" secondItem="WnQ-ql-o81" secondAttribute="bottom" constant="5" id="eCc-6R-yiV"/>
+                        <constraint firstAttribute="height" constant="340" id="fmE-gN-Ogj"/>
+                        <constraint firstItem="nwp-LQ-VOg" firstAttribute="leading" secondItem="gvZ-fK-lMh" secondAttribute="leading" id="nDt-sW-TaF"/>
+                        <constraint firstAttribute="width" constant="300" id="nsL-oj-rVj"/>
+                        <constraint firstItem="wXl-ql-Bdv" firstAttribute="top" secondItem="gvZ-fK-lMh" secondAttribute="top" constant="20" id="wY9-NQ-WIJ"/>
+                        <constraint firstAttribute="trailing" secondItem="nwp-LQ-VOg" secondAttribute="trailing" id="xGA-yP-Pi2"/>
+                        <constraint firstAttribute="width" constant="300" id="xro-bO-XiL"/>
+                        <constraint firstItem="wXl-ql-Bdv" firstAttribute="centerX" secondItem="zE9-lT-myF" secondAttribute="centerX" id="yaY-a2-CYl"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="fmE-gN-Ogj"/>
+                            <exclude reference="nsL-oj-rVj"/>
+                            <exclude reference="xro-bO-XiL"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.40105064655172412" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gvZ-fK-lMh" secondAttribute="trailing" constant="15" id="2f7-yV-kzc"/>
+                <constraint firstItem="gvZ-fK-lMh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="HeB-Ws-SQn"/>
+                <constraint firstItem="gvZ-fK-lMh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="fdx-Z8-9cl"/>
+                <constraint firstAttribute="trailing" secondItem="gvZ-fK-lMh" secondAttribute="trailing" constant="20" id="noy-2i-gRJ"/>
+                <constraint firstItem="gvZ-fK-lMh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="poh-L8-QAM"/>
+                <constraint firstItem="gvZ-fK-lMh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="rCi-d0-1Lz"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2f7-yV-kzc"/>
+                    <exclude reference="rCi-d0-1Lz"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="buttomView" destination="gvZ-fK-lMh" id="1kp-xm-4pD"/>
+                <outlet property="doneBtn" destination="nwp-LQ-VOg" id="atq-Zu-2iy"/>
+                <outlet property="segmentView" destination="wXl-ql-Bdv" id="6Mt-vd-gLP"/>
+                <outlet property="showYearView" destination="zE9-lT-myF" id="2dZ-bE-Hfr"/>
+                <outlet property="todayBtn" destination="WnQ-ql-o81" id="U2j-gO-gI0"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="selected" width="23" height="23"/>
+        <image name="unSelected" width="23" height="23"/>
+    </resources>
+</document>
