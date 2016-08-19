@@ -29,10 +29,6 @@
     [self.view endEditing:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)selelctTimeAction:(id)sender {
     
@@ -41,8 +37,8 @@
         self.startTimeText.text = [startDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
         self.endtimeText.text = [endDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
     }];
-    datepicker.datePickerStyle = 1;
-    datepicker.dateType = 1;
+    datepicker.datePickerStyle = DateStyleShowMonthDayHourMinute;
+    datepicker.dateType = DateTypeStartDate;
     datepicker.minLimitDate = [NSDate date:@"2017-08-11 12:22" WithFormat:@"yyyy-MM-dd HH:mm"];
     datepicker.maxLimitDate = [NSDate date:@"2020-12-12 12:12" WithFormat:@"yyyy-MM-dd HH:mm"];
     [self.view addSubview:datepicker];

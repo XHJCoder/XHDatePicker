@@ -501,6 +501,17 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
 }
 
 - (IBAction)doneAction:(UIButton *)btn {
+    switch (self.datePickerStyle) {
+            break;
+        case DateStyleShowYearMonthDay:
+        case DateStyleShowMonthDay:
+            self.scrollToDate = [self.scrollToDate dateWithYMD];
+            break;
+            
+        default:
+            break;
+    }
+    
     switch (self.dateType) {
         case DateTypeStartDate:
             _startDate = self.scrollToDate;
@@ -624,6 +635,9 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
 -(void)setDatePickerStyle:(XHDateStyle)datePickerStyle {
     _datePickerStyle = datePickerStyle;
     if (datePickerStyle == DateStyleShowMonthDayHourMinute || datePickerStyle == DateStyleShowMonthDay) {
+        if (datePickerStyle == DateStyleShowMonthDay) {
+            self.todayBtn.selected = YES;
+        }
         self.todayBtn.hidden = NO;
     } else {
         self.showYearView.text = @"";
