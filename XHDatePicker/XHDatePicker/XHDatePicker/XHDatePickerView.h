@@ -34,5 +34,7 @@ typedef enum{
 
 -(instancetype)initWithCompleteBlock:(void(^)(NSDate *,NSDate *))completeBlock;
 
+-(void)show;
+
 
 @end

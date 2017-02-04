@@ -37,10 +37,10 @@
         self.startTimeText.text = [startDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
         self.endtimeText.text = [endDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
     }];
-    datepicker.datePickerStyle = DateStyleShowMonthDayHourMinute;
+    datepicker.datePickerStyle = DateStyleShowYearMonthDayHourMinute;
     datepicker.dateType = DateTypeStartDate;
     datepicker.minLimitDate = [NSDate date:@"2017-08-11 12:22" WithFormat:@"yyyy-MM-dd HH:mm"];
     datepicker.maxLimitDate = [NSDate date:@"2020-12-12 12:12" WithFormat:@"yyyy-MM-dd HH:mm"];
-    [self.view addSubview:datepicker];
+    [datepicker show];
 }
 @end

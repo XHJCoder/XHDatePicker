@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,13 +18,12 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuX-UK-JEg">
-                                <rect key="frame" x="270" y="145" width="60" height="30"/>
+                                <rect key="frame" x="156.5" y="145" width="62" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Uf7-L5-eEx"/>
                                     <constraint firstAttribute="height" constant="30" id="W1o-8G-wzK"/>
                                 </constraints>
                                 <state key="normal" title="选择时间"/>
@@ -29,7 +32,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="开始时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8KJ-La-9Nl">
-                                <rect key="frame" x="194" y="217" width="212" height="30"/>
+                                <rect key="frame" x="81.5" y="217" width="212" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Vyy-Ef-UA3"/>
                                     <constraint firstAttribute="width" constant="212" id="ukN-rC-eRO"/>
@@ -38,7 +41,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="结束时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qY9-NM-sq3">
-                                <rect key="frame" x="194" y="289" width="212" height="30"/>
+                                <rect key="frame" x="81.5" y="289" width="212" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="40C-An-W2o"/>
                                     <constraint firstAttribute="width" constant="212" id="K2y-uT-JnL"/>
@@ -47,7 +50,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8KJ-La-9Nl" firstAttribute="top" secondItem="NuX-UK-JEg" secondAttribute="bottom" constant="42" id="89C-Pd-3MH"/>
                             <constraint firstItem="NuX-UK-JEg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E6t-pP-uuL"/>

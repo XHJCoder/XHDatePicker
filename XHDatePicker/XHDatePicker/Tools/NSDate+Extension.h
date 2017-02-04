@@ -1,80 +1,117 @@
 //
 //  NSDate+Extension.h
-//  zhidianLock
+//  SmartLock
 //
-//  Created by 江欣华 on 16/6/14.
-//  Copyright © 2016年 zhidiankeji. All rights reserved.
+//  Created by 江欣华 on 2016/10/25.
+//  Copyright © 2016年 工程锁. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#define kSCFW_SECOND_MINUTE     60
-#define kSCFW_SECOND_HOUR       3600
-#define kSCFW_SECOND_DAY		86400
-#define kSCFW_SECOND_WEEK       604800
-#define kSCFW_SECOND_YEAR       31556926
+#define D_MINUTE	60
+#define D_HOUR		3600
+#define D_DAY		86400
+#define D_WEEK		604800
+#define D_YEAR		31556926
 
 @interface NSDate (Extension)
 
-/// 时间戳
-- (NSTimeInterval)timestamp;
++ (NSCalendar *) currentCalendar; // avoid bottlenecks
 
-- (NSInteger)year;
-- (NSInteger)month;
-- (NSInteger)day;
-- (NSInteger)hour;
-- (NSInteger)minute;
-- (NSInteger)second;
-
-- (NSString *)weekday;
-
-- (NSInteger)weekOfMonth;
-- (NSInteger)weekOfYear;
-
-/// 获取月份的天数
-- (NSInteger)numberOfDaysInMonth;
-
-/// 判断是否闰年
-- (BOOL)isLeapYear;
-
-/// 时间转字符串
-- (NSString *)stringWithFormat:(NSString *)format;
-
-/// 一天的开始时间
-- (NSDate *)beginOfDay;
-/// 一天的结束时间
-- (NSDate *)endOfDay;
-
-/// 是否是同一天
-- (BOOL)isSameDay:(NSDate *)anotherDate;
-
-/// 日期相隔多少天
-- (NSInteger)daysSinceDate:(NSDate *)anotherDate;
-
-/**
- *  是否为今天
- */
-- (BOOL)isToday;
-/**
- *  是否为昨天
- */
-- (BOOL)isYesterday;
-/**
- *  是否为今年
- */
-- (BOOL)isThisYear;
-
-/**
- *  返回一个只有年月日的时间
- */
-- (NSDate *)dateWithYMD;
-
-/**
- *  获得与当前时间的差距
- */
-- (NSDateComponents *)deltaWithNow;
-
+// Relative dates from the current date
++ (NSDate *) dateTomorrow;
++ (NSDate *) dateYesterday;
++ (NSDate *) dateWithDaysFromNow: (NSInteger) days;
++ (NSDate *) dateWithDaysBeforeNow: (NSInteger) days;
++ (NSDate *) dateWithHoursFromNow: (NSInteger) dHours;
++ (NSDate *) dateWithHoursBeforeNow: (NSInteger) dHours;
++ (NSDate *) dateWithMinutesFromNow: (NSInteger) dMinutes;
++ (NSDate *) dateWithMinutesBeforeNow: (NSInteger) dMinutes;
 + (NSDate *)date:(NSString *)datestr WithFormat:(NSString *)format;
 
+// Short string utilities
+- (NSString *) stringWithDateStyle: (NSDateFormatterStyle) dateStyle timeStyle: (NSDateFormatterStyle) timeStyle;
+- (NSString *) stringWithFormat: (NSString *) format;
+@property (nonatomic, readonly) NSString *shortString;
+@property (nonatomic, readonly) NSString *shortDateString;
+@property (nonatomic, readonly) NSString *shortTimeString;
+@property (nonatomic, readonly) NSString *mediumString;
+@property (nonatomic, readonly) NSString *mediumDateString;
+@property (nonatomic, readonly) NSString *mediumTimeString;
+@property (nonatomic, readonly) NSString *longString;
+@property (nonatomic, readonly) NSString *longDateString;
+@property (nonatomic, readonly) NSString *longTimeString;
+
+// Comparing dates
+- (BOOL) isEqualToDateIgnoringTime: (NSDate *) aDate;
+
+- (BOOL) isToday;
+- (BOOL) isTomorrow;
+- (BOOL) isYesterday;
+
+- (BOOL) isSameWeekAsDate: (NSDate *) aDate;
+- (BOOL) isThisWeek;
+- (BOOL) isNextWeek;
+- (BOOL) isLastWeek;
+
+- (BOOL) isSameMonthAsDate: (NSDate *) aDate;
+- (BOOL) isThisMonth;
+- (BOOL) isNextMonth;
+- (BOOL) isLastMonth;
+
+- (BOOL) isSameYearAsDate: (NSDate *) aDate;
+- (BOOL) isThisYear;
+- (BOOL) isNextYear;
+- (BOOL) isLastYear;
+
+- (BOOL) isEarlierThanDate: (NSDate *) aDate;
+- (BOOL) isLaterThanDate: (NSDate *) aDate;
+
+- (BOOL) isInFuture;
+- (BOOL) isInPast;
+
+// Date roles
+- (BOOL) isTypicallyWorkday;
+- (BOOL) isTypicallyWeekend;
+
+// Adjusting dates
+- (NSDate *) dateByAddingYears: (NSInteger) dYears;
+- (NSDate *) dateBySubtractingYears: (NSInteger) dYears;
+- (NSDate *) dateByAddingMonths: (NSInteger) dMonths;
+- (NSDate *) dateBySubtractingMonths: (NSInteger) dMonths;
+- (NSDate *) dateByAddingDays: (NSInteger) dDays;
+- (NSDate *) dateBySubtractingDays: (NSInteger) dDays;
+- (NSDate *) dateByAddingHours: (NSInteger) dHours;
+- (NSDate *) dateBySubtractingHours: (NSInteger) dHours;
+- (NSDate *) dateByAddingMinutes: (NSInteger) dMinutes;
+- (NSDate *) dateBySubtractingMinutes: (NSInteger) dMinutes;
+
+// Date extremes
+- (NSDate *) dateAtStartOfDay;
+- (NSDate *) dateAtEndOfDay;
+
+// Retrieving intervals
+- (NSInteger) minutesAfterDate: (NSDate *) aDate;
+- (NSInteger) minutesBeforeDate: (NSDate *) aDate;
+- (NSInteger) hoursAfterDate: (NSDate *) aDate;
+- (NSInteger) hoursBeforeDate: (NSDate *) aDate;
+- (NSInteger) daysAfterDate: (NSDate *) aDate;
+- (NSInteger) daysBeforeDate: (NSDate *) aDate;
+- (NSInteger)distanceInDaysToDate:(NSDate *)anotherDate;
+
+// Decomposing dates
+@property (readonly) NSInteger nearestHour;
+@property (readonly) NSInteger hour;
+@property (readonly) NSInteger minute;
+@property (readonly) NSInteger seconds;
+@property (readonly) NSInteger day;
+@property (readonly) NSInteger month;
+@property (readonly) NSInteger week;
+@property (readonly) NSInteger weekday;
+@property (readonly) NSInteger nthWeekday; // e.g. 2nd Tuesday of the month == 2
+@property (readonly) NSInteger year;
+
+- (NSDate *)dateWithYMD;
+- (NSDate *)dateWithFormatter:(NSString *)formatter;
 
 @end
