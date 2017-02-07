@@ -607,6 +607,8 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
     
     self.showYearView.text = _yearArray[yearIndex];
     
+    [self.datePicker reloadAllComponents];
+    
     for (int i=0; i<indexArray.count; i++) {
         if ((self.datePickerStyle == DateStyleShowMonthDayHourMinute || self.datePickerStyle == DateStyleShowMonthDay)&& i==0) {
             NSInteger mIndex = [indexArray[i] integerValue]+(12*(self.scrollToDate.year - MINYEAR));
