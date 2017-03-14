@@ -54,6 +54,7 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
 @property (nonatomic,strong)UIPickerView *datePicker;
 @property (nonatomic, retain) NSDate *scrollToDate;//滚到指定日期
 @property (nonatomic,strong)doneBlock doneBlock;
+@property (nonatomic, retain) NSDate *currentDate; //默认显示时间
 
 
 @end
@@ -61,9 +62,15 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
 @implementation XHDatePickerView
 
 -(instancetype)initWithCompleteBlock:(void(^)(NSDate *,NSDate *))completeBlock {
+    return [self initWithCurrentDate:nil CompleteBlock:completeBlock];
+}
+
+-(instancetype)initWithCurrentDate:(NSDate *)currentDate CompleteBlock:(void (^)(NSDate *, NSDate *))completeBlock {
     self = [super init];
     if (self) {
         self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] lastObject];
+        
+        self.currentDate = currentDate;
         
         _dateFormatter = @"yyyy-MM-dd HH:mm";
         [self setupUI];
@@ -109,7 +116,8 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
 -(void)defaultConfig {
     
     if (!_scrollToDate) {
-        _scrollToDate = [NSDate date];
+        _scrollToDate = self.currentDate ? self.currentDate : [NSDate date];
+//        _scrollToDate = [NSDate date];
     }
     
     
@@ -636,6 +644,14 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
 -(void)setMinLimitDate:(NSDate *)minLimitDate {
     _minLimitDate = minLimitDate;
     if ([_scrollToDate compare:self.minLimitDate] == NSOrderedAscending) {
+        _scrollToDate = self.minLimitDate;
+    }
+    [self getNowDate:self.scrollToDate animated:NO];
+}
+
+-(void)setMaxLimitDate:(NSDate *)maxLimitDate {
+    _maxLimitDate = maxLimitDate;
+    if ([_scrollToDate compare:self.minLimitDate] == NSOrderedDescending) {
         _scrollToDate = self.minLimitDate;
     }
     [self getNowDate:self.scrollToDate animated:NO];

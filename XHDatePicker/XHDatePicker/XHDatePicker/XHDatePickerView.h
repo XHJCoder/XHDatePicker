@@ -34,6 +34,13 @@ typedef enum{
 
 -(instancetype)initWithCompleteBlock:(void(^)(NSDate *,NSDate *))completeBlock;
 
+/**
+ *   设置打开选择器时的默认时间，
+ *   minLimitDate < currentDate < maxLimitDate  显示 currentDate;
+ *   currentDate < minLimitDate ||  currentDate > maxLimitDate   显示minLimitDate;
+ */
+-(instancetype)initWithCurrentDate:(NSDate *)currentDate CompleteBlock:(void(^)(NSDate *,NSDate *))completeBlock;
+
 -(void)show;
 
 
