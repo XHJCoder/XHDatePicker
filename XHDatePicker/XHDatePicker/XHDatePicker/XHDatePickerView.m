@@ -651,8 +651,8 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
 
 -(void)setMaxLimitDate:(NSDate *)maxLimitDate {
     _maxLimitDate = maxLimitDate;
-    if ([_scrollToDate compare:self.minLimitDate] == NSOrderedDescending) {
-        _scrollToDate = self.minLimitDate;
+    if ([_scrollToDate compare:maxLimitDate] == NSOrderedDescending) {
+        _scrollToDate = maxLimitDate;
     }
     [self getNowDate:self.scrollToDate animated:NO];
 }
