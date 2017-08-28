@@ -2,8 +2,8 @@
 //  XHDatePickerUITests.m
 //  XHDatePickerUITests
 //
-//  Created by 江欣华 on 16/8/16.
-//  Copyright © 2016年 江欣华. All rights reserved.
+//  Created by XH_J on 2016/10/25.
+//  Copyright © 2016年 XHJCoder. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
