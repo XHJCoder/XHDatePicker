@@ -10,7 +10,7 @@
 
 static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekOfMonth |  NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekdayOrdinal);
 
-@implementation NSDate (Extension)
+@implementation NSDate (XHExtension)
 // Courtesy of Lukasz Margielewski
 // Updated via Holger Haenisch
 + (NSCalendar *) currentCalendar
