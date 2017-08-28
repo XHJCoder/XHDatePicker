@@ -504,14 +504,6 @@ static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth 
     return date;
 }
 
-- (NSDate *)dateWithYMD
-{
-    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-    fmt.dateFormat = @"yyyy-MM-dd";
-    NSString *selfStr = [fmt stringFromDate:self];
-    return [fmt dateFromString:selfStr];
-}
-
 -(NSDate *)dateWithFormatter:(NSString *)formatter {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = formatter;
