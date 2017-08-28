@@ -1,9 +1,9 @@
 //
-//  NSDate+Extension.h
+//  NSDate+XHExtension.h
 //  SmartLock
 //
-//  Created by 江欣华 on 2016/10/25.
-//  Copyright © 2016年 工程锁. All rights reserved.
+//  Created by XH_J on 2016/10/25.
+//  Copyright © 2016年 XHJCoder. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -14,7 +14,7 @@
 #define D_WEEK		604800
 #define D_YEAR		31556926
 
-@interface NSDate (Extension)
+@interface NSDate (XHExtension)
 
 + (NSCalendar *) currentCalendar; // avoid bottlenecks
 

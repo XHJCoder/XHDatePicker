@@ -1,12 +1,12 @@
 //
-//  NSDate+Extension.m
+//  NSDate+XHExtension.m
 //  SmartLock
 //
-//  Created by 江欣华 on 2016/10/25.
-//  Copyright © 2016年 工程锁. All rights reserved.
+//  Created by XH_J on 2016/10/25.
+//  Copyright © 2016年 XHJCoder. All rights reserved.
 //
 
-#import "NSDate+Extension.h"
+#import "NSDate+XHExtension.h"
 
 static const unsigned componentFlags = (NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekOfMonth |  NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekdayOrdinal);
 
