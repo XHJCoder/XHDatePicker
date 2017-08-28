@@ -67,7 +67,7 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
 -(instancetype)initWithCurrentDate:(NSDate *)currentDate CompleteBlock:(void (^)(NSDate *, NSDate *))completeBlock {
     self = [super init];
     if (self) {
-        self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] lastObject];
+        self = [[[NSBundle bundleForClass:[self class]] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] lastObject];
         
         self.currentDate = currentDate;
         

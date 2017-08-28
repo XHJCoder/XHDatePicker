@@ -11,14 +11,13 @@
 		2F0A1CBC1D631A7F00AFBEC2 /* XHDatePickerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A1CBB1D631A7F00AFBEC2 /* XHDatePickerUITests.m */; };
 		2F0B24CF1F53F04B009D1BD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B24C31F53F04B009D1BD8 /* AppDelegate.m */; };
 		2F0B24D01F53F04B009D1BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B24C41F53F04B009D1BD8 /* Assets.xcassets */; };
-		2F0B24D11F53F04B009D1BD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B24C51F53F04B009D1BD8 /* LaunchScreen.storyboard */; };
 		2F0B24D21F53F04B009D1BD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B24C71F53F04B009D1BD8 /* Main.storyboard */; };
 		2F0B24D31F53F04B009D1BD8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B24C91F53F04B009D1BD8 /* Info.plist */; };
 		2F0B24D41F53F04B009D1BD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B24CA1F53F04B009D1BD8 /* main.m */; };
 		2F0B24D51F53F04B009D1BD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B24CC1F53F04B009D1BD8 /* ViewController.m */; };
-		2F0B24F01F53FAB0009D1BD8 /* NSDate+XHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B24EC1F53FAB0009D1BD8 /* NSDate+XHExtension.m */; };
-		2F0B24F11F53FAB0009D1BD8 /* XHDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B24EE1F53FAB0009D1BD8 /* XHDatePickerView.m */; };
-		2F0B24F21F53FAB0009D1BD8 /* XHDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B24EF1F53FAB0009D1BD8 /* XHDatePickerView.xib */; };
+		2F0B24F91F54050E009D1BD8 /* NSDate+XHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B24F51F54050E009D1BD8 /* NSDate+XHExtension.m */; };
+		2F0B24FA1F54050E009D1BD8 /* XHDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B24F71F54050E009D1BD8 /* XHDatePickerView.m */; };
+		2F0B24FB1F54050E009D1BD8 /* XHDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B24F81F54050E009D1BD8 /* XHDatePickerView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,17 +48,16 @@
 		2F0B24C21F53F04B009D1BD8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2F0B24C31F53F04B009D1BD8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2F0B24C41F53F04B009D1BD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2F0B24C61F53F04B009D1BD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F0B24C81F53F04B009D1BD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F0B24C91F53F04B009D1BD8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F0B24CA1F53F04B009D1BD8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F0B24CB1F53F04B009D1BD8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2F0B24CC1F53F04B009D1BD8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2F0B24EB1F53FAB0009D1BD8 /* NSDate+XHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XHExtension.h"; sourceTree = "<group>"; };
-		2F0B24EC1F53FAB0009D1BD8 /* NSDate+XHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XHExtension.m"; sourceTree = "<group>"; };
-		2F0B24ED1F53FAB0009D1BD8 /* XHDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHDatePickerView.h; sourceTree = "<group>"; };
-		2F0B24EE1F53FAB0009D1BD8 /* XHDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHDatePickerView.m; sourceTree = "<group>"; };
-		2F0B24EF1F53FAB0009D1BD8 /* XHDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHDatePickerView.xib; sourceTree = "<group>"; };
+		2F0B24F41F54050E009D1BD8 /* NSDate+XHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XHExtension.h"; sourceTree = "<group>"; };
+		2F0B24F51F54050E009D1BD8 /* NSDate+XHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XHExtension.m"; sourceTree = "<group>"; };
+		2F0B24F61F54050E009D1BD8 /* XHDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHDatePickerView.h; sourceTree = "<group>"; };
+		2F0B24F71F54050E009D1BD8 /* XHDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHDatePickerView.m; sourceTree = "<group>"; };
+		2F0B24F81F54050E009D1BD8 /* XHDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHDatePickerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +88,7 @@
 		2F0A1C8A1D631A7E00AFBEC2 = {
 			isa = PBXGroup;
 			children = (
-				2F0B24EA1F53FAB0009D1BD8 /* XHDatePicker */,
+				2F0B24F31F54050E009D1BD8 /* XHDatePicker */,
 				2F0B24C11F53F04B009D1BD8 /* XHDatePicker_demo */,
 				2F0A1CAF1D631A7F00AFBEC2 /* XHDatePickerTests */,
 				2F0A1CBA1D631A7F00AFBEC2 /* XHDatePickerUITests */,
@@ -131,25 +129,24 @@
 			children = (
 				2F0B24C21F53F04B009D1BD8 /* AppDelegate.h */,
 				2F0B24C31F53F04B009D1BD8 /* AppDelegate.m */,
+				2F0B24CB1F53F04B009D1BD8 /* ViewController.h */,
+				2F0B24CC1F53F04B009D1BD8 /* ViewController.m */,
 				2F0B24C41F53F04B009D1BD8 /* Assets.xcassets */,
-				2F0B24C51F53F04B009D1BD8 /* LaunchScreen.storyboard */,
 				2F0B24C71F53F04B009D1BD8 /* Main.storyboard */,
 				2F0B24C91F53F04B009D1BD8 /* Info.plist */,
 				2F0B24CA1F53F04B009D1BD8 /* main.m */,
-				2F0B24CB1F53F04B009D1BD8 /* ViewController.h */,
-				2F0B24CC1F53F04B009D1BD8 /* ViewController.m */,
 			);
 			path = XHDatePicker_demo;
 			sourceTree = "<group>";
 		};
-		2F0B24EA1F53FAB0009D1BD8 /* XHDatePicker */ = {
+		2F0B24F31F54050E009D1BD8 /* XHDatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				2F0B24EB1F53FAB0009D1BD8 /* NSDate+XHExtension.h */,
-				2F0B24EC1F53FAB0009D1BD8 /* NSDate+XHExtension.m */,
-				2F0B24ED1F53FAB0009D1BD8 /* XHDatePickerView.h */,
-				2F0B24EE1F53FAB0009D1BD8 /* XHDatePickerView.m */,
-				2F0B24EF1F53FAB0009D1BD8 /* XHDatePickerView.xib */,
+				2F0B24F41F54050E009D1BD8 /* NSDate+XHExtension.h */,
+				2F0B24F51F54050E009D1BD8 /* NSDate+XHExtension.m */,
+				2F0B24F61F54050E009D1BD8 /* XHDatePickerView.h */,
+				2F0B24F71F54050E009D1BD8 /* XHDatePickerView.m */,
+				2F0B24F81F54050E009D1BD8 /* XHDatePickerView.xib */,
 			);
 			path = XHDatePicker;
 			sourceTree = "<group>";
@@ -258,11 +255,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0B24FB1F54050E009D1BD8 /* XHDatePickerView.xib in Resources */,
 				2F0B24D31F53F04B009D1BD8 /* Info.plist in Resources */,
 				2F0B24D21F53F04B009D1BD8 /* Main.storyboard in Resources */,
 				2F0B24D01F53F04B009D1BD8 /* Assets.xcassets in Resources */,
-				2F0B24D11F53F04B009D1BD8 /* LaunchScreen.storyboard in Resources */,
-				2F0B24F21F53FAB0009D1BD8 /* XHDatePickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,8 +285,8 @@
 			files = (
 				2F0B24D41F53F04B009D1BD8 /* main.m in Sources */,
 				2F0B24CF1F53F04B009D1BD8 /* AppDelegate.m in Sources */,
-				2F0B24F01F53FAB0009D1BD8 /* NSDate+XHExtension.m in Sources */,
-				2F0B24F11F53FAB0009D1BD8 /* XHDatePickerView.m in Sources */,
+				2F0B24F91F54050E009D1BD8 /* NSDate+XHExtension.m in Sources */,
+				2F0B24FA1F54050E009D1BD8 /* XHDatePickerView.m in Sources */,
 				2F0B24D51F53F04B009D1BD8 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,14 +323,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2F0B24C51F53F04B009D1BD8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F0B24C61F53F04B009D1BD8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		2F0B24C71F53F04B009D1BD8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

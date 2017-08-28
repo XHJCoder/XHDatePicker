@@ -6,7 +6,7 @@
 //  Copyright © 2016年 XHJCoder. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #define D_MINUTE	60
 #define D_HOUR		3600
