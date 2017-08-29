@@ -1,5 +1,5 @@
 # XHDatePicker  日期选择器
-![日期选择器](https://github.com/XHJCoder/XHDatePicker/blob/master/Screenshot/datepicker.png)  
+![日期选择器](https://github.com/XHJCoder/XHDatePicker/blob/master/Screenshot/screen1.png)
 
 ## Installation【安装】
 
