@@ -6,6 +6,11 @@
 在Podfile文件中添加``` pod 'XHDatePicker'``` ，并运行 ```pod install```
 
 ## Usage【使用】
+- 导入
+```
+#import "XHDatePickerView.h"
+```
+
 - init对象
 ```
 /**
