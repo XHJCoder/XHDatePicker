@@ -23,21 +23,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuX-UK-JEg">
-                                <rect key="frame" x="103" y="130" width="169" height="30"/>
+                                <rect key="frame" x="111" y="130" width="153" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="W1o-8G-wzK"/>
                                 </constraints>
-                                <state key="normal" title="时间类型：年月日时分秒"/>
+                                <state key="normal" title="时间类型：年月日时分"/>
                                 <connections>
                                     <action selector="selelctTimeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cuH-qP-1cV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyI-Gl-gvj">
-                                <rect key="frame" x="111" y="165" width="153" height="30"/>
+                                <rect key="frame" x="118.5" y="165" width="138" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="WZh-ci-6tI"/>
                                 </constraints>
-                                <state key="normal" title="时间类型：年月日时分"/>
+                                <state key="normal" title="时间类型：月日时分"/>
                                 <connections>
                                     <action selector="selelctTimeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q0F-xd-Zbt"/>
                                 </connections>
