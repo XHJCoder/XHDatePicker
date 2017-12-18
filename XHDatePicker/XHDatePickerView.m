@@ -399,11 +399,11 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
                 
                 [self yearChange:row];
                 
+                [self DaysfromYear:[_yearArray[yearIndex] integerValue] andMonth:[_monthArray[monthIndex] integerValue]];
                 if (_dayArray.count-1<dayIndex) {
                     dayIndex = _dayArray.count-1;
                 }
             }
-            [self DaysfromYear:[_yearArray[yearIndex] integerValue] andMonth:[_monthArray[monthIndex] integerValue]];
             
         }
             break;
@@ -416,11 +416,12 @@ typedef void(^doneBlock)(NSDate *,NSDate *);
                 
                 [self yearChange:row];
                 
+                [self DaysfromYear:[_yearArray[yearIndex] integerValue] andMonth:[_monthArray[monthIndex] integerValue]];
                 if (_dayArray.count-1<dayIndex) {
                     dayIndex = _dayArray.count-1;
                 }
             }
-            [self DaysfromYear:[_yearArray[yearIndex] integerValue] andMonth:[_monthArray[monthIndex] integerValue]];
+            
         }
             break;
             
