@@ -34,26 +34,27 @@ typedef enum {
 @property (nonatomic, strong) UIPickerView *datePicker;
 @property (nonatomic, strong) void(^doneBlock)(NSDate *date, NSString *dateString);
 @property (nonatomic, copy) NSString *yearText;
+@property (nonatomic, strong) NSDate *currentDate; 
 
 
 @end
 
 @implementation XHDatePickerView
 
--(instancetype)initWithCompleteBlock:(void(^)(NSDate *date, NSString *dateString))completeBlock {
-
-    self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] lastObject];
-    [self setupUI];
++ (instancetype)showWithCompleteBlock:(void (^)(NSDate *, NSString *))completeBlock {
     
-    self.datePickerMode = XHDatePickerModeMonthDayHourMinute;
-    self.currentDate = [NSDate date];
+    XHDatePickerView *datePickerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] lastObject];
+    [datePickerView setupUI];
+    
+    datePickerView.datePickerMode = XHDatePickerModeYearMonthDayHourMinute;
+    datePickerView.date = [NSDate date];
     
     if (completeBlock) {
-        self.doneBlock = ^(NSDate *date, NSString *dateString) {
+        datePickerView.doneBlock = ^(NSDate *date, NSString *dateString) {
             completeBlock(date,dateString);
         };
     }
-    return self;
+    return datePickerView;
 }
 
 - (void)setupUI {
@@ -75,9 +76,11 @@ typedef enum {
     
     [self.showYearView addSubview:self.datePicker];
     
+    [self show];
+    
 }
 
--(void)addLabelWithName:(NSArray *)nameArr {
+- (void)addLabelWithName:(NSArray *)nameArr {
     for (id subView in self.showYearView.subviews) {
         if ([subView isKindOfClass:[UILabel class]]) {
             [subView removeFromSuperview];
@@ -147,10 +150,13 @@ typedef enum {
 {
     UILabel *label = (UILabel *)[pickerView viewForRow:row forComponent:component];
     NSInteger rowData = label.text.integerValue;
+    
+    // 月份是否循环滚动
     if ([_dateTypeArray[component] intValue] == XHDateTypeMonth && _isRepeatMonth) {
         NSInteger year = row/12+1;
         self.currentDate = [_currentDate dateByAddingYears:year - _currentDate.year];
     }
+    
     [self updateCurrentDateWithRowData:rowData dateType:[_dateTypeArray[component] intValue]];
 }
 
@@ -158,9 +164,8 @@ typedef enum {
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if( [touch.view isDescendantOfView:self.buttomView]) {
+    if( [touch.view isDescendantOfView:self.buttomView])
         return NO;
-    }
     return YES;
 }
 
@@ -169,8 +174,7 @@ typedef enum {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     [UIView animateWithDuration:.3 animations:^{
         self.bottomConstraint.constant = 10;
-        self.backgroundColor = [UIColor colorWithRed:(0 / 255.0) green:(0 / 255.0) blue:(0 / 255.0) alpha:0.4];
-        [self layoutIfNeeded];;
+        self.backgroundColor = [UIColor colorWithRed:(0 / 255.0) green:(0 / 255.0) blue:(0 / 255.0) alpha:0.3];
         [self layoutIfNeeded];
     }];
 }
@@ -179,7 +183,6 @@ typedef enum {
     [UIView animateWithDuration:.3 animations:^{
         self.bottomConstraint.constant = -self.frame.size.height;
         self.backgroundColor = [UIColor colorWithRed:(0 / 255.0) green:(0 / 255.0) blue:(0 / 255.0) alpha:0];
-        [self layoutIfNeeded];
         [self layoutIfNeeded];
     } completion:^(BOOL finished) {
         [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -216,25 +219,23 @@ typedef enum {
 }
 
 #pragma mark - Tools
-// 判断当前时间是否在限定范围内
-- (void)currentDateInRangeWithAnimated:(BOOL)animated {
+// 判断当前时间是否在限定范围内  (YES:在限定范围内 NO:不在限定范围内)
+- (BOOL)currentDateInRangeWithAnimated:(BOOL)animated {
     BOOL isScroll = NO;
     
     if (_minimumDate && [_currentDate compare:_minimumDate] == NSOrderedAscending) {
         _currentDate = _minimumDate;
         isScroll = YES;
-    }
-    
-    if (_maximumDate && [_currentDate compare:_maximumDate] == NSOrderedDescending) {
+    } else if (_maximumDate && [_currentDate compare:_maximumDate] == NSOrderedDescending) {
         _currentDate = _maximumDate;
         isScroll = YES;
     }
     
     self.yearText = [NSString stringWithFormat:@"%ld",(long)_currentDate.year];
-
     if (isScroll) {
         [self scrollToCurrentDateWithAnimated:animated];
     }
+    return !isScroll;
 
 }
 
@@ -373,6 +374,7 @@ typedef enum {
             break;
     }
     [self.datePicker reloadAllComponents];
+    self.yearText = [NSString stringWithFormat:@"%ld",(long)_currentDate.year];
     [self scrollToCurrentDateWithAnimated:NO];
 }
 
@@ -381,14 +383,23 @@ typedef enum {
     [self currentDateInRangeWithAnimated:NO];
 }
 
--(void)setMaximumDate:(NSDate *)maximumDate {
+- (void)setMaximumDate:(NSDate *)maximumDate {
     _maximumDate = maximumDate;
     [self currentDateInRangeWithAnimated:NO];
 }
 
--(void)setCurrentDate:(NSDate *)currentDate {
+- (void)setCurrentDate:(NSDate *)currentDate {
     _currentDate = currentDate;
     [self currentDateInRangeWithAnimated:YES];
+}
+
+- (void)setDate:(NSDate *)date {
+    _date = date;
+    _currentDate = date;
+    if ([self currentDateInRangeWithAnimated:NO]) {
+        [self scrollToCurrentDateWithAnimated:NO];
+    }
+    
 }
 
 - (void)setThemeColor:(UIColor *)themeColor {
@@ -422,6 +433,10 @@ typedef enum {
         _datePicker.dataSource = self;
     }
     return _datePicker;
+}
+
+- (void)dealloc {
+    NSLog(@"dealloc");
 }
 
 @end

@@ -19,9 +19,11 @@ typedef enum {
 
 @interface XHDatePickerView : UIView
 
+// default is XHDatePickerModeYearMonthDayHourMinute
 @property (nonatomic, assign) XHDatePickerMode datePickerMode;
 
-/* 默认与datePickerMode相对应
+/**
+ * 默认与datePickerMode相对应
  * 比如：XHDatePickerModeYearMonthDayHourMinute对应的dateFormatter是：@"yyyy-MM-dd HH:mm"
  * 你也可以设置格式为 yyyy年MM月dd日HH时mm分
  */
@@ -29,13 +31,10 @@ typedef enum {
 
 @property (nonatomic, strong) UIColor *themeColor;
 
-@property (nonatomic, strong) NSDate *minimumDate; // 限制最大时间（默认nil）
-@property (nonatomic, strong) NSDate *maximumDate; // 限制最小时间（默认nil）
-@property (nonatomic, strong) NSDate *currentDate; // 当前显示时间（默认[NSDate date]）
+@property (nonatomic, strong) NSDate *minimumDate; // 限制最大时间（default is nil）
+@property (nonatomic, strong) NSDate *maximumDate; // 限制最小时间（default is nil）
+@property (nonatomic, strong) NSDate *date;        // 当前显示时间（default is [NSDate date]）
 
--(instancetype)initWithCompleteBlock:(void(^)(NSDate *date, NSString *dateString))completeBlock;
-
--(void)show;
-
++ (instancetype)showWithCompleteBlock:(void(^)(NSDate *date, NSString *dateString))completeBlock;
 
 @end

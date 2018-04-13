@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvZ-fK-lMh">
-                    <rect key="frame" x="10" y="367" width="355" height="300"/>
+                    <rect key="frame" x="10" y="397" width="355" height="270"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwp-LQ-VOg">
-                            <rect key="frame" x="0.0" y="256" width="355" height="44"/>
+                            <rect key="frame" x="0.0" y="226" width="355" height="44"/>
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="vMI-GT-z2f"/>
@@ -31,8 +31,8 @@
                                 <action selector="doneAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="pJk-ty-47x"/>
                             </connections>
                         </button>
-                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE9-lT-myF">
-                            <rect key="frame" x="0.0" y="10" width="355" height="236"/>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE9-lT-myF">
+                            <rect key="frame" x="0.0" y="10" width="355" height="206"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="300" id="Jnx-Pc-Fjt"/>
                                 <constraint firstAttribute="height" constant="200" id="yfH-dm-Hcp"/>
@@ -50,7 +50,7 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.9847876320422535" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="300" id="5dD-J8-1oE"/>
+                        <constraint firstAttribute="height" constant="270" id="5dD-J8-1oE"/>
                         <constraint firstAttribute="trailing" secondItem="zE9-lT-myF" secondAttribute="trailing" id="KVC-f7-nDk"/>
                         <constraint firstItem="zE9-lT-myF" firstAttribute="leading" secondItem="gvZ-fK-lMh" secondAttribute="leading" id="NM5-rp-NR2"/>
                         <constraint firstItem="zE9-lT-myF" firstAttribute="top" secondItem="gvZ-fK-lMh" secondAttribute="top" constant="10" id="P1w-4l-IKC"/>
