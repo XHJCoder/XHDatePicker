@@ -8,7 +8,7 @@
 ## Usage【使用】
 - 导入
 ```
-#import "XHDatePickerView.h"
+#import "XHDatePicker.h"
 ```
 
 - 生成对象并展示
@@ -62,7 +62,7 @@ typedef enum {
 
 ## Example【示例】
 ```
-    XHDatePickerView *datePicker = [XHDatePickerView showWithCompleteBlock:^(NSDate *date, NSString *dateString) {
+    XHDatePicker *datePicker = [XHDatePicker showWithCompleteBlock:^(NSDate *date, NSString *dateString) {
         NSLog(@"%@ , %@",date, dateString);
     }];
     
