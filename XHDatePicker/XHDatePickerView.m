@@ -9,13 +9,13 @@
 #import "XHDatePickerView.h"
 #import "NSDate+XHExtension.h"
 
-typedef enum {
+typedef NS_ENUM(NSInteger, XHDateType) {
     XHDateTypeYear,
     XHDateTypeMonth,
     XHDateTypeDay,
     XHDateTypeHour,
     XHDateTypeMinute
-} XHDateType;
+};
 
 @interface XHDatePickerView ()<UIPickerViewDelegate,UIPickerViewDataSource,UIGestureRecognizerDelegate> {
     
@@ -128,7 +128,7 @@ typedef enum {
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    XHDateType type = [_dateTypeArray[component] intValue];
+    XHDateType type = [_dateTypeArray[component] integerValue];
     NSString *title;
     switch (type) {
         case XHDateTypeYear:
@@ -152,12 +152,12 @@ typedef enum {
     NSInteger rowData = label.text.integerValue;
     
     // 月份是否循环滚动
-    if ([_dateTypeArray[component] intValue] == XHDateTypeMonth && _isRepeatMonth) {
+    if ([_dateTypeArray[component] integerValue] == XHDateTypeMonth && _isRepeatMonth) {
         NSInteger year = row/12+1;
         self.currentDate = [_currentDate dateByAddingYears:year - _currentDate.year];
     }
     
-    [self updateCurrentDateWithRowData:rowData dateType:[_dateTypeArray[component] intValue]];
+    [self updateCurrentDateWithRowData:rowData dateType:[_dateTypeArray[component] integerValue]];
 }
 
 
@@ -271,7 +271,7 @@ typedef enum {
             break;
     }
     
-    for (int i=0; i<indexArray.count; i++) {
+    for (NSInteger i=0; i<indexArray.count; i++) {
         [self.datePicker selectRow:[indexArray[i] integerValue] inComponent:i animated:animated];
     }
 }
@@ -433,10 +433,6 @@ typedef enum {
         _datePicker.dataSource = self;
     }
     return _datePicker;
-}
-
-- (void)dealloc {
-    NSLog(@"dealloc");
 }
 
 @end

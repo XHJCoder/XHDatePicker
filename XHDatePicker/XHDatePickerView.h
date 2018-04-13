@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
+typedef NS_ENUM(NSInteger, XHDatePickerMode) {
     XHDatePickerModeYearMonthDayHourMinute  = 0,   // 年月日时分
     XHDatePickerModeMonthDayHourMinute,            // 月日时分
     XHDatePickerModeYearMonthDay,                  // 年月日
     XHDatePickerModeYearMonth,                     // 年月
     XHDatePickerModeMonthDay,                      // 月日
     XHDatePickerModeHourMinute                     // 时分
-} XHDatePickerMode;
+};
 
 @interface XHDatePickerView : UIView
 
