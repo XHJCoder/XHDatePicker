@@ -14,7 +14,7 @@
 - init对象
 ```
 /**
- @param completeBlock 时间选择好之后的回调，返回开始时间和结束时间 
+ @param completeBlock 时间选择好之后的回调，返回选择的时间和时间的String值
  */
 - (instancetype)initWithCompleteBlock:(void(^)(NSDate *date, NSString *dateString))completeBlock;
 ```
