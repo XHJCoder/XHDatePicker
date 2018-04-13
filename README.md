@@ -71,9 +71,7 @@ typedef enum {
     datePicker.maximumDate = [NSDate date:@"2022-11-23 07:55" WithFormat:@"yyyy-MM-dd HH:mm"];
     datePicker.themeColor = [UIColor redColor];
     datePicker.dateFormatter = @"yyyy年MM月dd日 HH:mm";
-    datePicker.datePickerMode = (int)indexPath.row;
-    
-    [datePicker show];
+    datePicker.datePickerMode = (int)indexPath.row;    
 ```
 
 
