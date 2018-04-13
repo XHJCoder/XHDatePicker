@@ -43,7 +43,7 @@ typedef NS_ENUM(NSInteger, XHDateType) {
 
 + (instancetype)showWithCompleteBlock:(void (^)(NSDate *, NSString *))completeBlock {
     
-    XHDatePicker *datePickerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] lastObject];
+    XHDatePicker *datePickerView = [[[NSBundle bundleForClass:[self class]] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] lastObject];
     [datePickerView setupUI];
     
     datePickerView.datePickerMode = XHDatePickerModeYearMonthDayHourMinute;
