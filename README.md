@@ -11,12 +11,12 @@
 #import "XHDatePickerView.h"
 ```
 
-- init对象
+- 生成对象并展示
 ```
 /**
  @param completeBlock 时间选择好之后的回调，返回选择的时间和时间的String值
  */
-- (instancetype)initWithCompleteBlock:(void(^)(NSDate *date, NSString *dateString))completeBlock;
++ (instancetype)showWithCompleteBlock:(void(^)(NSDate *date, NSString *dateString))completeBlock;
 ```
 
 - 设置日期选择器样式
@@ -62,7 +62,7 @@ typedef enum {
 
 ## Example【示例】
 ```
-    XHDatePickerView *datePicker = [[XHDatePickerView alloc] initWithCompleteBlock:^(NSDate *date, NSString *dateString) {
+    XHDatePickerView *datePicker = [XHDatePickerView showWithCompleteBlock:^(NSDate *date, NSString *dateString) {
         NSLog(@"%@ , %@",date, dateString);
     }];
     
