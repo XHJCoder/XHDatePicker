@@ -1,5 +1,5 @@
 //
-//  XHDatePickerView.h
+//  XHDatePicker.h
 //  XHDatePicker
 //
 //  Created by XH_J on 2016/10/25.
@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, XHDatePickerMode) {
     XHDatePickerModeHourMinute                     // 时分
 };
 
-@interface XHDatePickerView : UIView
+@interface XHDatePicker : UIView
 
 // default is XHDatePickerModeYearMonthDayHourMinute
 @property (nonatomic, assign) XHDatePickerMode datePickerMode;

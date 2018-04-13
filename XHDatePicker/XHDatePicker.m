@@ -1,12 +1,12 @@
 //
-//  XHDatePickerView.m
+//  XHDatePicker.m
 //  XHDatePicker
 //
 //  Created by XH_J on 2016/10/25.
 //  Copyright © 2016年 XHJCoder. All rights reserved.
 //
 
-#import "XHDatePickerView.h"
+#import "XHDatePicker.h"
 #import "NSDate+XHExtension.h"
 
 typedef NS_ENUM(NSInteger, XHDateType) {
@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, XHDateType) {
     XHDateTypeMinute
 };
 
-@interface XHDatePickerView ()<UIPickerViewDelegate,UIPickerViewDataSource,UIGestureRecognizerDelegate> {
+@interface XHDatePicker ()<UIPickerViewDelegate,UIPickerViewDataSource,UIGestureRecognizerDelegate> {
     
     NSArray *_rowsDataArray;
     NSArray *_dateTypeArray;
@@ -39,11 +39,11 @@ typedef NS_ENUM(NSInteger, XHDateType) {
 
 @end
 
-@implementation XHDatePickerView
+@implementation XHDatePicker
 
 + (instancetype)showWithCompleteBlock:(void (^)(NSDate *, NSString *))completeBlock {
     
-    XHDatePickerView *datePickerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] lastObject];
+    XHDatePicker *datePickerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] lastObject];
     [datePickerView setupUI];
     
     datePickerView.datePickerMode = XHDatePickerModeYearMonthDayHourMinute;
@@ -133,14 +133,14 @@ typedef NS_ENUM(NSInteger, XHDateType) {
     switch (type) {
         case XHDateTypeYear:
         case XHDateTypeDay:
-            title = [NSString stringWithFormat:@"%ld",row+1];
+            title = [NSString stringWithFormat:@"%d",(int)row+1];
             break;
         case XHDateTypeMonth:
-            title = [NSString stringWithFormat:@"%ld",(row)%12+1];
+            title = [NSString stringWithFormat:@"%d",(int)(row)%12+1];
             break;
         case XHDateTypeHour:
         case XHDateTypeMinute:
-            title = [NSString stringWithFormat:@"%.2ld",row];
+            title = [NSString stringWithFormat:@"%.2d",(int)row];
             break;
     }
     return title;
@@ -231,7 +231,7 @@ typedef NS_ENUM(NSInteger, XHDateType) {
         isScroll = YES;
     }
     
-    self.yearText = [NSString stringWithFormat:@"%ld",(long)_currentDate.year];
+    self.yearText = [NSString stringWithFormat:@"%d",(int)_currentDate.year];
     if (isScroll) {
         [self scrollToCurrentDateWithAnimated:animated];
     }
@@ -374,7 +374,7 @@ typedef NS_ENUM(NSInteger, XHDateType) {
             break;
     }
     [self.datePicker reloadAllComponents];
-    self.yearText = [NSString stringWithFormat:@"%ld",(long)_currentDate.year];
+    self.yearText = [NSString stringWithFormat:@"%d",(int)_currentDate.year];
     [self scrollToCurrentDateWithAnimated:NO];
 }
 

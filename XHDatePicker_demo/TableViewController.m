@@ -7,7 +7,7 @@
 //
 
 #import "TableViewController.h"
-#import "XHDatePickerView.h"
+#import "XHDatePicker.h"
 #import "NSDate+XHExtension.h"
 
 @interface TableViewController ()
@@ -24,7 +24,7 @@
 #pragma mark - Table view data source
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    XHDatePickerView *datePicker = [XHDatePickerView showWithCompleteBlock:^(NSDate *date, NSString *dateString) {
+    XHDatePicker *datePicker = [XHDatePicker showWithCompleteBlock:^(NSDate *date, NSString *dateString) {
         NSLog(@"%@ , %@",date, dateString);
     }];
     
