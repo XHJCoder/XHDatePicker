@@ -16,74 +16,64 @@
 /**
  @param completeBlock 时间选择好之后的回调，返回开始时间和结束时间 
  */
--(instancetype)initWithCompleteBlock:(void(^)(NSDate *,NSDate *))completeBlock;
-
-
-/**
- @param currentDate 设置打开选择器时的默认显示时间
- *   minLimitDate < currentDate < maxLimitDate  显示 currentDate;
- *   currentDate < minLimitDate ||  currentDate > maxLimitDate   显示minLimitDate;
- @param completeBlock 时间选择好之后的回调，返回开始时间和结束时间 
- */
--(instancetype)initWithCurrentDate:(NSDate *)currentDate CompleteBlock:(void(^)(NSDate *,NSDate *))completeBlock;
+- (instancetype)initWithCompleteBlock:(void(^)(NSDate *date, NSString *dateString))completeBlock;
 ```
 
 - 设置日期选择器样式
 ```
-typedef enum{
-  DateStyleShowYearMonthDayHourMinute  = 0,  // 显示年月日时分
-  DateStyleShowMonthDayHourMinute,           // 显示月日时分
-  DateStyleShowYearMonthDay,                 // 显示年月日
-  DateStyleShowMonthDay,                     // 显示月日
-  DateStyleShowHourMinute                    // 显示时分
-}XHDateStyle;
+typedef enum {
+    XHDatePickerModeYearMonthDayHourMinute  = 0,   // 年月日时分
+    XHDatePickerModeMonthDayHourMinute,            // 月日时分
+    XHDatePickerModeYearMonthDay,                  // 年月日
+    XHDatePickerModeYearMonth,                     // 年月
+    XHDatePickerModeMonthDay,                      // 月日
+    XHDatePickerModeHourMinute                     // 时分
+} XHDatePickerMode;
 
-@property (nonatomic,assign)XHDateStyle datePickerStyle;
-```
-
-- 设置时间类型
-```
-typedef enum{
-  DateTypeStartDate,   // 开始时间  
-  DateTypeEndDate      // 结束时间
-}XHDateType;
-
-@property (nonatomic,assign)XHDateType dateType;
+// default is XHDatePickerModeYearMonthDayHourMinute
+@property (nonatomic, assign) XHDatePickerMode datePickerMode;
 ```
 
 - 设置最大最小时间限制
 ```
-@property (nonatomic, retain) NSDate *maxLimitDate; //限制最大时间（没有设置默认2049年）
-@property (nonatomic, retain) NSDate *minLimitDate; //限制最小时间（没有设置默认1970年）
+@property (nonatomic, strong) NSDate *minimumDate; // 限制最大时间（default is nil）
+@property (nonatomic, strong) NSDate *maximumDate; // 限制最小时间（default is nil）
+```
+
+- 设置当前显示时间
+```
+@property (nonatomic, strong) NSDate *date;        // 当前显示时间（default is [NSDate date]）
+```
+
+- 设置主题色
+```
+@property (nonatomic, strong) UIColor *themeColor;
+```
+
+- 设置时间格式
+```
+/**
+ * 默认与datePickerMode相对应
+ * 比如：XHDatePickerModeYearMonthDayHourMinute对应的dateFormatter是：@"yyyy-MM-dd HH:mm"
+ * 你也可以设置格式为 yyyy年MM月dd日HH时mm分
+ */
+@property (nonatomic, copy) NSString *dateFormatter;
 ```
 
 ## Example【示例】
-- 不设置默认显示时间
 ```
-    XHDatePickerView *datepicker = [[XHDatePickerView alloc] initWithCompleteBlock:^(NSDate *startDate,NSDate *endDate) {
-        NSLog(@"\n开始时间： %@，结束时间：%@",startDate,endDate);
-        self.startTimeText.text = [startDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
-        self.endtimeText.text = [endDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
+    XHDatePickerView *datePicker = [[XHDatePickerView alloc] initWithCompleteBlock:^(NSDate *date, NSString *dateString) {
+        NSLog(@"%@ , %@",date, dateString);
     }];
-    datepicker.datePickerStyle = DateStyleShowYearMonthDayHourMinute;
-    datepicker.dateType = DateTypeStartDate;
-    datepicker.minLimitDate = [NSDate date:@"2017-08-11 12:22" WithFormat:@"yyyy-MM-dd HH:mm"];
-    datepicker.maxLimitDate = [NSDate date:@"2020-12-12 12:12" WithFormat:@"yyyy-MM-dd HH:mm"];
-    [datepicker show];
-```
-
-- 设置默认显示时间
-```
-    XHDatePickerView *datepicker = [[XHDatePickerView alloc] initWithCurrentDate:[NSDate date] CompleteBlock:^(NSDate *startDate, NSDate *endDate) {
-        NSLog(@"\n开始时间： %@，结束时间：%@",startDate,endDate);
-        self.startTimeText.text = [startDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
-        self.endtimeText.text = [endDate stringWithFormat:@"yyyy-MM-dd HH:mm"];
-    }];
-    datepicker.datePickerStyle = DateStyleShowYearMonthDayHourMinute;
-    datepicker.dateType = DateTypeStartDate;
-    datepicker.minLimitDate = [NSDate date:@"2017-08-11 12:22" WithFormat:@"yyyy-MM-dd HH:mm"];
-    datepicker.maxLimitDate = [NSDate date:@"2020-12-12 12:12" WithFormat:@"yyyy-MM-dd HH:mm"];
-    [datepicker show];
+    
+    datePicker.date = [NSDate date:@"2018-05-13 22:55" WithFormat:@"yyyy-MM-dd HH:mm"];
+    datePicker.minimumDate = [NSDate date:@"2015-01-14 12:14" WithFormat:@"yyyy-MM-dd HH:mm"];
+    datePicker.maximumDate = [NSDate date:@"2022-11-23 07:55" WithFormat:@"yyyy-MM-dd HH:mm"];
+    datePicker.themeColor = [UIColor redColor];
+    datePicker.dateFormatter = @"yyyy年MM月dd日 HH:mm";
+    datePicker.datePickerMode = (int)indexPath.row;
+    
+    [datePicker show];
 ```
 
 
