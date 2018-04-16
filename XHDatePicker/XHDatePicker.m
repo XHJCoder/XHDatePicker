@@ -405,6 +405,7 @@ typedef NS_ENUM(NSInteger, XHDateType) {
 - (void)setThemeColor:(UIColor *)themeColor {
     _themeColor = themeColor;
     self.doneBtn.backgroundColor = themeColor;
+    [self.datePicker reloadAllComponents];
 }
 
 - (void)setYearText:(NSString *)yearText {
