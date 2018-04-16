@@ -52,7 +52,7 @@ typedef enum {
 @property (nonatomic, strong) UIColor *themeColor;
 ```
 
-- 设置时间格式
+- 设置时间格式（体现在completeBlock返回的dateString上）
 ```
 /**
  * 默认与datePickerMode相对应
